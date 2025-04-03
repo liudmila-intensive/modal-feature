@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     'use strict';
 
-    let deadLine = '2025-03-25';
+    let deadLine = '2025-04-08';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date());
@@ -68,4 +68,43 @@ window.addEventListener('DOMContentLoaded', function() {
         // отменяем запрет скролла
         document.body.style.overflow = '';
     })
+
+    const popup = this.document.querySelector('.popup');
+    const popupTitle = this.document.querySelector('.popup-title');
+
+    let offsetX, offsetY;
+    let isDragging = false;
+
+    popupTitle.addEventListener('mouseover', () => {
+        popup.style.cursor = "pointer";
+    })
+
+    popupTitle.addEventListener('mousedown', (event) => {
+        isDragging = true;
+
+        offsetX = event.clientX - popup.getBoundingClientRect().left;
+        offsetY = event.clientY - popup.getBoundingClientRect().top;
+
+        popup.style.position = "absolute";
+        popup.style.cursor = "grabbing";
+    });
+
+    this.document.addEventListener('mousemove', (event) => {
+        if (!isDragging) return; 
+        popup.style.left = `${event.clientX - offsetX}px`;
+        popup.style.top = `${event.clientY - offsetY}px`;
+
+        popup.style.cursor = "grabbing";
+    });
+
+    this.document.addEventListener('mouseup', () => {
+        isDragging = false;
+        popup.style.cursor = "default";
+    })
 });
+
+
+
+
+
+

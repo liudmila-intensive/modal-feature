@@ -100,23 +100,17 @@
 }
 
 .overlay {
-  /*position: fixed;*/
   display: none;
   top: 0;
   width: auto;
   height: auto;
-  
   z-index: 3;
 }
 .overlay .popup {
-  position: absolute;
+  position: fixed;
   z-index: 4;
-  left: 50%;
   top: 150px;
   width: 752px;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
   background-color: rgb(0, 0, 0);
 }
 .overlay .popup-close {
@@ -142,8 +136,6 @@
   text-align: center;
 }
 .overlay .popup-form {
-  background: url(../img/modal.jpg) center no-repeat;
-  background-size: cover;
   padding: 35px 88px 50px 88px;
   color: #fff;
 }
