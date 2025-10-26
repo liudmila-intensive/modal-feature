@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     'use strict';
 
-    let deadLine = '2025-04-08';
+    let deadLine = '2025-11-08';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date());
